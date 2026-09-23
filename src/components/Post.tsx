@@ -1,33 +1,22 @@
-import type { Post as PostType } from '../types/post'
+import type { Post as PostType } from "../types/post";
+import "../styles/blog.css";
 
 interface PostProps {
-  post: PostType
+  post: PostType;
 }
 
 function Post({ post }: PostProps) {
-  const publishedDate = post.publishedAt ?? post.date ?? 'Unknown date'
-
   return (
-    <article>
-      <h2>{post.title}</h2>
+    <article className="post">
+      <h3 className="post-title">{post.title}</h3>
 
-      <p>By {post.author}</p>
+      <p className="post-author">By {post.author}</p>
 
-      <p>{post.content}</p>
+      <p className="post-content">{post.content}</p>
 
-      {post.tags && post.tags.length > 0 && (
-        <div>
-          {post.tags.map((tag) => (
-            <span key={`${post.id}-${tag}`}>#{tag} </span>
-          ))}
-        </div>
-      )}
-
-      {typeof post.likes === 'number' && <p>♥ {post.likes}</p>}
-
-      <p>{publishedDate}</p>
+      <p className="post-date">{post.date}</p>
     </article>
-  )
+  );
 }
 
 export default Post;
