@@ -7,7 +7,11 @@ interface PostProps {
 
 function Post({ post }: PostProps) {
   return (
-    <article className="post">
+    <article
+      className={`post ${
+        post.author === "Owen Ganza" ? "featured-post" : ""
+      }`}
+    >
       <h3 className="post-title">{post.title}</h3>
 
       <p className="post-author">By {post.author}</p>

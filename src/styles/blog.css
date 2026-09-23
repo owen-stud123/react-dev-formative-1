@@ -69,3 +69,7 @@
   color: #6b7280;
   font-size: 13px;
 }
+.featured-post {
+  border-left: 5px solid #2563eb;
+  background-color: #eff6ff;
+}
