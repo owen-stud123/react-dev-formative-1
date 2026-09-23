@@ -1,10 +1,14 @@
 import "../styles/blog.css";
+import withLogger from "../hoc/withLogger";
 
 function Header() {
   return (
     <header className="header">
-      <h1 className="logo" style={{ letterSpacing: "1px" }}>
-         Dev Insights
+      <h1
+        className="logo"
+        style={{ letterSpacing: "1px" }}
+      >
+        Dev Insights
       </h1>
 
       <nav>
@@ -16,4 +20,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default withLogger(Header, "Header");
