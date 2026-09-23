@@ -3,7 +3,8 @@ export interface Post {
   title: string
   author: string
   content: string
-  likes: number
-  tags: string[]
-  publishedAt: string
+  date?: string
+  likes?: number
+  tags?: string[]
+  publishedAt?: string
 }

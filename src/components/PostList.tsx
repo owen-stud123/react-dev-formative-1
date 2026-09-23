@@ -1,18 +1,20 @@
 import Post from './Post'
 import type { Post as PostType } from '../types/post'
 
-type PostListProps = {
-  posts: PostType[]
+interface PostListProps {
+  posts?: PostType[]
 }
 
-const PostList = ({ posts }: PostListProps) => {
+function PostList({ posts = [] }: PostListProps) {
   return (
-    <section className="post-list">
+    <main>
+      <h2>Latest Posts</h2>
+
       {posts.map((post) => (
         <Post key={post.id} post={post} />
       ))}
-    </section>
+    </main>
   )
 }
 
-export default PostList
+export default PostList;

@@ -1,12 +1,15 @@
-const Header = () => {
+function Header() {
   return (
-    <header className="site-header">
-      <div className="container">
-        <p className="eyebrow">Developer notes</p>
-        <h1>Frontend Journal</h1>
+    <header>
+      <div>
+        <h1>Dev Insights</h1>
       </div>
+
+      <nav>
+        <a href="#new-post">New Post</a>
+      </nav>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

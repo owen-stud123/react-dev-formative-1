@@ -1,34 +1,33 @@
 import type { Post as PostType } from '../types/post'
 
-type PostProps = {
+interface PostProps {
   post: PostType
 }
 
-const Post = ({ post }: PostProps) => {
-  return (
-    <article className="post-card">
-      <div className="post-meta">
-        <span className="post-author">{post.author}</span>
-        <time>{post.publishedAt}</time>
-      </div>
+function Post({ post }: PostProps) {
+  const publishedDate = post.publishedAt ?? post.date ?? 'Unknown date'
 
+  return (
+    <article>
       <h2>{post.title}</h2>
 
-      <p className="post-content">{post.content}</p>
+      <p>By {post.author}</p>
 
-      <div className="post-tags">
-        {post.tags.map((tag) => (
-          <span key={`${post.id}-${tag}`} className="tag">
-            #{tag}
-          </span>
-        ))}
-      </div>
+      <p>{post.content}</p>
 
-      <div className="post-actions">
-        <span>♥ {post.likes}</span>
-      </div>
+      {post.tags && post.tags.length > 0 && (
+        <div>
+          {post.tags.map((tag) => (
+            <span key={`${post.id}-${tag}`}>#{tag} </span>
+          ))}
+        </div>
+      )}
+
+      {typeof post.likes === 'number' && <p>♥ {post.likes}</p>}
+
+      <p>{publishedDate}</p>
     </article>
   )
 }
 
-export default Post
+export default Post;
