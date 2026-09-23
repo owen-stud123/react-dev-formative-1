@@ -1,4 +1,4 @@
-# Dev Insights — Mini Blog
+# Dev Insights: Mini Blog
 
 A small React and TypeScript blog application built for the React Formative Assessment.
 
